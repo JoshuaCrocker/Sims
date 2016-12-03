@@ -1,15 +1,15 @@
 <?php
-require 'Database.php';
-require 'UUID.php';
-require 'Person.php';
-require 'Population.php';
-require 'Action.php';
-require 'ActionChat.php';
-require 'ActionClub.php';
-require 'ActionHeal.php';
-require 'ActionHit.php';
-require 'PopulationTickAgent.php';
-require 'RandomActionAgent.php';
+require 'System/Database.php';
+require 'System/UUID.php';
+require 'Social/Person.php';
+require 'Social/Population.php';
+require 'Actions/Action.php';
+require 'Actions/ActionChat.php';
+require 'Actions/ActionClub.php';
+require 'Actions/ActionHeal.php';
+require 'Actions/ActionHit.php';
+require 'TickAgents/PopulationTickAgent.php';
+require 'TickAgents/RandomActionAgent.php';
 
 function output($string = '') {
     print $string . "\n";
