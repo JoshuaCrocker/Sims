@@ -4,7 +4,7 @@ class Population {
     private $population_tick_agent = null;
 
     public function addMember(Person $person) {
-        output('Adding ' . $person->getName() . ' to the population.');
+        // output('Adding ' . $person->getName() . ' to the population.');
         $this->members[] = $person;
     }
 
@@ -28,6 +28,10 @@ class Population {
         while ($person = $people->fetch()) {
             $this->addMember(Person::load($person['id'], $person['data']));
         }
+    }
+
+    public function getMembers() {
+        return $this->members;
     }
 
 }
