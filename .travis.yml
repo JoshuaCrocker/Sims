@@ -1,0 +1,16 @@
+language: php
+php:
+    - '7.0'
+    - nightly
+before_script:
+    - composer self-update
+    - composer install --prefer-source --no-interaction --dev
+# script: phpunit Test.php
+script: phpunit --bootstrap loader.php Tests/
+notifications:
+    on_success: never
+    on_failure: always
+matrix:
+  allow_failures:
+      - nightly
+  fast_finish: true
