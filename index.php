@@ -1,6 +1,7 @@
 <?php
 require 'System/Database.php';
 require 'System/UUID.php';
+require 'Social/NameGenerator.php';
 require 'Social/Person.php';
 require 'Social/Population.php';
 require 'Actions/Action.php';
@@ -34,6 +35,10 @@ $population = new Population();
 $population->load($Database);
 
 $population->assignPopulationTickAgent($agent);
+
+// $population->addMember(Person::create());
+// $population->addMember(Person::create());
+// $population->addMember(Person::create());
 
 // $population->addMember($person_jc);
 // $population->addMember($person_mp);

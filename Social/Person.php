@@ -74,6 +74,12 @@ class Person {
         return $person;
     }
 
+    public static function create() {
+        $generator = new NameGenerator();
+        $person = new Person($generator->getFullName(), $generator->getGender());
+        return $person;
+    }
+
     public function toJSON() {
         return json_encode([
             'name' => $this->name,
