@@ -19,7 +19,7 @@ class Person {
 
     public function __construct($name, $gender, $id = null) {
         if ($gender != self::GENDER_MALE && $gender != self::GENDER_FEMALE) {
-            die("Incorrect gender");
+            $gender = self::GENDER_MALE;
         }
 
         $this->id = $id == null ? UUID::v4() : $id;
@@ -118,8 +118,8 @@ class Person {
     }
 
     public function setGender($gender) {
-        if ($gender != self::GENDER_MALE || $gender != self::GENDER_FEMALE) {
-            die("Incorrect gender");
+        if ($gender != self::GENDER_MALE && $gender != self::GENDER_FEMALE) {
+            $gender = self::GENDER_MALE;
         }
 
         $this->gender = $gender;
