@@ -7,8 +7,7 @@ function output($string = '') {
 
 $Database = new Database('database.ini');
 
-output("Welcome to the Sim.");
-output();
+Output::getInstance()->log("Welcome to the Sim.");
 
 $agent = new RandomActionAgent();
 
@@ -50,3 +49,5 @@ $population->tick();
 // }
 
 $population->save($Database);
+
+Output::getInstance()->getOutput();
