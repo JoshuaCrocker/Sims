@@ -9,7 +9,7 @@ class NameGenerator {
     private $lastName;
 
     public function __construct($seed = null) {
-        $this->seed = is_null($seed) ? sha1(time()) : $seed;
+        $this->seed = is_null($seed) ? sha1(date('dmY')) : $seed;
         $this->regenerate();
     }
 
