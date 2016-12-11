@@ -47,4 +47,8 @@ class Output {
     public function addOutput($message, $level = Output::LEVEL_LOG) {
         $this->output[] = [$message, $level];
     }
+
+    public function clearOutput() {
+        $this->output = [];
+    }
 }
