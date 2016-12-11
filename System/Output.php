@@ -22,7 +22,7 @@ class Output {
         return self::$instance;
     }
 
-    private function getOutput() {
+    public function getOutput() {
         foreach ($this->output as $output) {
             print self::$levels[$output[1]] . ': ' . $output[0] . "\n";
         }
