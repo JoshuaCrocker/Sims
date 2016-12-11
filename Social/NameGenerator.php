@@ -30,7 +30,7 @@ class NameGenerator {
     }
 
     public function regenerate() {
-        $json = file_get_contents(NameGenerator::API_URL.'?seed' . $this->seed);
+        $json = file_get_contents(NameGenerator::API_URL.'&seed=' . $this->seed);
         $json = json_decode($json);
 
         $this->gender = $json->results[0]->gender == 'male' ? Person::GENDER_MALE : Person::GENDER_FEMALE;
