@@ -30,8 +30,8 @@ abstract class Action {
 
         $performee->setRelationship($performer->getID(), $new_relationship);
 
-        output($performer->getName() . ' performed ' . $this->name . ' on ' . $performee->getName() . ' making their stat change from ' . $performee_stat . ' to ' . $new_stat);
-        output($performee->getName() . '\'s relationship with ' . $performer->getName() . ' changed from ' . $relationship . ' to ' . $new_relationship);
-        output();
+        Output::getInstance()->addOutput($performer->getName() . ' performed ' . $this->name . ' on ' . $performee->getName() . ' making their stat change from ' . $performee_stat . ' to ' . $new_stat);
+        Output::getInstance()->addOutput($performee->getName() . '\'s relationship with ' . $performer->getName() . ' changed from ' . $relationship . ' to ' . $new_relationship);
+        
     }
 }

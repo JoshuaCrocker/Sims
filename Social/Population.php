@@ -5,6 +5,7 @@ class Population {
 
     public function addMember(Person $person) {
         // output('Adding ' . $person->getName() . ' to the population.');
+        Output::getInstance()->addOutput('Adding ' . $person->getName() . ' to the population.');
         $this->members[] = $person;
     }
 
