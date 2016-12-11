@@ -1,4 +1,5 @@
 <?php
+require 'System/Output.php';
 require 'System/Database.php';
 require 'System/UUID.php';
 require 'Social/NameGenerator.php';
