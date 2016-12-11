@@ -1,8 +1,8 @@
 <?php
 class Output {
-    public const LEVEL_LOG = 0;
-    public const LEVEL_WARN = 1;
-    public const LEVEL_ERROR = 2;
+    const LEVEL_LOG = 0;
+    const LEVEL_WARN = 1;
+    const LEVEL_ERROR = 2;
 
     private static $levels = [
         'LOG  ',
