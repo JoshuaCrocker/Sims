@@ -74,8 +74,8 @@ class Person {
         return $person;
     }
 
-    public static function create() {
-        $generator = new NameGenerator();
+    public static function create($seed = null) {
+        $generator = new NameGenerator($seed);
         $person = new Person($generator->getFullName(), $generator->getGender());
         return $person;
     }
