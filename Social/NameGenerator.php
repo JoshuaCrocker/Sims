@@ -42,7 +42,7 @@ class NameGenerator {
         $this->seed = $seed;
     }
 
-    public function getSeed($seed) {
+    public function getSeed() {
         return $this->seed;
     }
 }
