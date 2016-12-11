@@ -44,7 +44,22 @@ class SocialPersonTest extends TestCase {
         $this->assertEquals($person->getGender(), $new_gender);
     }
 
-    // TODO Person::create test (seed it)
+    public function testPersonCreate() {
+        $seed = 'testseed';
+
+        $person = Person::create($seed);
+
+        $response = file_get_contents('https://randomuser.me/api/?nat=gb&seed=' . $seed);
+        $response = json_decode($response);
+
+        $name = ucfirst($response->results[0]->name->first) . ' ' . ucfirst($response->results[0]->name->last);
+        $gender = $response->results[0]->gender == 'male' ? Person::GENDER_MALE : Person::GENDER_FEMALE;
+
+        $this->assertEquals($seed, $response->info->seed);
+
+        $this->assertEquals($name, $person->getName());
+        $this->assertEquals($gender, $person->getGender());
+    }
 
     // TODO Stat Test
 
