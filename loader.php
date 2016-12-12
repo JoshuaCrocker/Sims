@@ -1,4 +1,11 @@
 <?php
+/**
+  * Sims loader.php
+  *
+  * @author   Joshua Crocker
+  * @version  1.0.0
+  */
+  
 require 'System/Output.php';
 require 'System/Database.php';
 require 'System/UUID.php';
