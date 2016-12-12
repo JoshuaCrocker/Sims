@@ -19,12 +19,12 @@ class RandomActionAgent extends PopulationTickAgent {
 
         foreach ($members as $im => $member) {
             if ($this->random() <= $this->action_chance) {
-                $action = $this->actions[mt_rand(0, count($this->actions)-1)];
+                $action = $this->actions[mt_rand(0, count($this->actions) - 1)];
 
                 $target = $im;
 
                 while ($target == $im) {
-                    $target = mt_rand(0, count($members)-1);
+                    $target = mt_rand(0, count($members) - 1);
                 }
 
                 $target = $members[$target];
