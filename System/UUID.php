@@ -26,7 +26,9 @@ class UUID
      */
     public static function v3($namespace, $name)
     {
-        if(!self::is_valid($namespace)) return false;
+        if(!self::is_valid($namespace)) {
+            return false;
+        }
         // Get hexadecimal components of namespace
         $nhex = str_replace(array('-','{','}'), '', $namespace);
         // Binary Value
@@ -90,7 +92,9 @@ class UUID
      */
     public static function v5($namespace, $name)
     {
-        if(!self::is_valid($namespace)) return false;
+        if(!self::is_valid($namespace)) {
+            return false;
+        }
         // Get hexadecimal components of namespace
         $nhex = str_replace(array('-','{','}'), '', $namespace);
         // Binary Value
@@ -119,7 +123,7 @@ class UUID
         );
     }
     public static function is_valid($uuid) {
-        return preg_match('/^\{?[0-9a-f]{8}\-?[0-9a-f]{4}\-?[0-9a-f]{4}\-?'.
+        return preg_match('/^\{?[0-9a-f]{8}\-?[0-9a-f]{4}\-?[0-9a-f]{4}\-?' .
                         '[0-9a-f]{4}\-?[0-9a-f]{12}\}?$/i', $uuid) === 1;
     }
 }
