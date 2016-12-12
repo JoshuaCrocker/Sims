@@ -107,7 +107,9 @@ class Person {
     }
 
     public function getRelationship($id) {
-        if (!isset($this->relationships[$id])) $this->relationships[$id] = 50;
+        if (!isset($this->relationships[$id])) {
+            $this->relationships[$id] = 50;
+        }
         return $this->relationships[$id];
     }
 
