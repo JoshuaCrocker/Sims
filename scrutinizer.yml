@@ -6,4 +6,3 @@ coding_style:
       around_operators:
         additive: true
         concatenation: true
-build: false
