@@ -6,3 +6,7 @@ coding_style:
       around_operators:
         additive: true
         concatenation: true
+build:
+  environment:
+    php:
+      version: 7.0.8 
