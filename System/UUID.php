@@ -26,17 +26,17 @@ class UUID
      */
     public static function v3($namespace, $name)
     {
-        if(!self::is_valid($namespace)) {
+        if (!self::is_valid($namespace)) {
             return false;
         }
         // Get hexadecimal components of namespace
-        $nhex = str_replace(array('-','{','}'), '', $namespace);
+        $nhex = str_replace(array('-', '{', '}'), '', $namespace);
         // Binary Value
         $nstr = '';
         // Convert Namespace UUID to bits
-        for($i = 0; $i < strlen($nhex); $i+=2)
+        for ($i = 0; $i < strlen($nhex); $i += 2)
         {
-            $nstr .= chr(hexdec($nhex[$i].$nhex[$i+1]));
+            $nstr .= chr(hexdec($nhex[$i] . $nhex[$i + 1]));
         }
         // Calculate hash value
         $hash = md5($nstr . $name);
@@ -92,17 +92,17 @@ class UUID
      */
     public static function v5($namespace, $name)
     {
-        if(!self::is_valid($namespace)) {
+        if (!self::is_valid($namespace)) {
             return false;
         }
         // Get hexadecimal components of namespace
-        $nhex = str_replace(array('-','{','}'), '', $namespace);
+        $nhex = str_replace(array('-', '{', '}'), '', $namespace);
         // Binary Value
         $nstr = '';
         // Convert Namespace UUID to bits
-        for($i = 0; $i < strlen($nhex); $i+=2)
+        for ($i = 0; $i < strlen($nhex); $i += 2)
         {
-            $nstr .= chr(hexdec($nhex[$i].$nhex[$i+1]));
+            $nstr .= chr(hexdec($nhex[$i] . $nhex[$i + 1]));
         }
         // Calculate hash value
         $hash = sha1($nstr . $name);
