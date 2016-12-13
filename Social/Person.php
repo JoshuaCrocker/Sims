@@ -1,74 +1,74 @@
 <?php
     
 /**
-  * Person Class
-  *
-  * @author     Joshua Crocker
-  * @category   Social
-  * @version    1.0.0
-  */
+ * Person Class
+ *
+ * @author     Joshua Crocker
+ * @category   Social
+ * @version    1.0.0
+ */
 class Person {
     
     /**
-      * @const Male Constant
-      */
+     * @const Male Constant
+     */
     const GENDER_MALE = 0;
     
     /**
-      * @const Female Constant
-      */
+     * @const Female Constant
+     */
     const GENDER_FEMALE = 1;
 
     /**
-      * @const Generic Stat Constant
-      */
+     * @const Generic Stat Constant
+     */
     const STAT_GENERIC = 0;
     
     /**
-      * @const Maximum Statistic Value
-      */
+     * @const Maximum Statistic Value
+     */
     const STAT_MAX = 100;
     
     /**
-      * @var string UUID Person Identifier
-      * @access private
-      */
+     * @var string UUID Person Identifier
+     * @access private
+     */
     private $id;
     
     /**
-      * @var string The name of the person
-      * @access private
-      */
+     * @var string The name of the person
+     * @access private
+     */
     private $name;
     
     /**
-      * @var integer The gender of the person
-      * @access private
-      */
+     * @var integer The gender of the person
+     * @access private
+     */
     private $gender;
     
     /**
-      * @var array The Person's stats
-      * @access private
-      */
+     * @var array The Person's stats
+     * @access private
+     */
     private $stats = [];
     
     /**
-      * @var array The Person's relationships
-      * @access private
-      */
+     * @var array The Person's relationships
+     * @access private
+     */
     private $relationships = [];
     
     /**
-      * Person Constructor
-      *
-      * Set up the Person instance.
-      *
-      * @access public  
-      * @param string $name The name of the person
-      * @param integer $gender The gender of the person
-      * @param null|string $id The ID of the user
-      */
+     * Person Constructor
+     *
+     * Set up the Person instance.
+     *
+     * @access public  
+     * @param string $name The name of the person
+     * @param integer $gender The gender of the person
+     * @param null|string $id The ID of the user
+     */
     public function __construct($name, $gender, $id = null) {
         // Check the gender is valid
         if ($gender != self::GENDER_MALE && $gender != self::GENDER_FEMALE) {
@@ -83,14 +83,14 @@ class Person {
     }
 
     /**
-      * Act Method
-      *
-      * Perform an action, `$action`, on another Person, `$to`.
-      *
-      * @param Action $action The action to perform
-      * @param Person $to The person to act upon
+     * Act Method
+     *
+     * Perform an action, `$action`, on another Person, `$to`.
+     *
+     * @param Action $action The action to perform
+     * @param Person $to The person to act upon
      * @return void
-      */
+     */
     public function act($action, $to) {
         $action->act($this, $to);
     }
@@ -136,7 +136,7 @@ class Person {
      * @static
      * @param mixed $id The ID of the Person
      * @param mixed $data The data about the Person
-     * @return void
+     * @return Person
      */
     public static function load($id, $data) {
         $data = json_decode($data);
@@ -161,7 +161,7 @@ class Person {
      * 
      * @access public
      * @static
-     * @param mixed $seed (default: null)
+     * @param string $seed (default: null)
      * @return Person
      */
     public static function create($seed = null) {
@@ -234,7 +234,7 @@ class Person {
      * Get the value of relationship between two people
      * 
      * @access public
-     * @param mixed $id The ID of the other Person
+     * @param string $id The ID of the other Person
      * @return float
      */
     public function getRelationship($id) {
@@ -248,7 +248,7 @@ class Person {
      * Set Name Method
      * 
      * @access public
-     * @param mixed $name The new name
+     * @param string $name The new name
      * @return void
      */
     public function setName($name) {

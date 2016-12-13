@@ -1,41 +1,41 @@
 <?php
 
 /**
-  * Action Abstract Class
-  *
-  * Defines the basic functionality of an action
-  *
-  * @author   Joshua Crocker
-  * @category Action
-  * @version  1.0.0
-  */
+ * Action Abstract Class
+ *
+ * Defines the basic functionality of an action
+ *
+ * @author   Joshua Crocker
+ * @category Action
+ * @version  1.0.0
+ */
 abstract class Action {
     
     /**
-      * @var string Name of the Action
-      */
+     * @var string Name of the Action
+     */
     protected $name = 'Generic';
     
     /**
-      * @var integer The Stat that this action effects
-      */
+     * @var integer The Stat that this action effects
+     */
     protected $acts_on = Person::STAT_GENERIC;
     
     /**
-      * @var integer The multiplier for this action
-      */
+     * @var integer The multiplier for this action
+     */
     protected $action_points = 1;
 
     /**
-      * Action Act Method
-      *
-      * Performs the action on another Person, modifying stats and relationships as necessary.
-      *
-      * @param Person $performer The Person performing the action
-      * @param Person $performee The Person being acted upon
-      *
-      * @return null
-      */
+     * Action Act Method
+     *
+     * Performs the action on another Person, modifying stats and relationships as necessary.
+     *
+     * @param Person $performer The Person performing the action
+     * @param Person $performee The Person being acted upon
+     *
+     * @return null
+     */
     public function act($performer, $performee) {
         // Get Perfomer and Performee stats
         $performer_stat = $performer->getStat($this->acts_on);

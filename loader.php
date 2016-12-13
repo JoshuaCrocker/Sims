@@ -1,10 +1,10 @@
 <?php
 /**
-  * Sims loader.php
-  *
-  * @author   Joshua Crocker
-  * @version  1.0.0
-  */
+ * Sims loader.php
+ *
+ * @author   Joshua Crocker
+ * @version  1.0.0
+ */
   
 require 'System/Output.php';
 require 'System/Database.php';

@@ -1,14 +1,14 @@
 <?php
 /**
-  * Sims index.php
-  *
-  * Sims is a population model creating using PHP. This is the entry file
-  * for the simulation.
-  *
-  *
-  * @author   Joshua Crocker
-  * @version  1.0.0
-  */  
+ * Sims index.php
+ *
+ * Sims is a population model creating using PHP. This is the entry file
+ * for the simulation.
+ *
+ *
+ * @author   Joshua Crocker
+ * @version  1.0.0
+ */  
   
 require 'loader.php';
 

@@ -9,18 +9,18 @@
  */
 class Output {
     /**
-      * @const LEVEL_LOG
-      */
+     * @const LEVEL_LOG
+     */
     const LEVEL_LOG = 0;
 
     /**
-      * @const LEVEL_WARN
-      */
+     * @const LEVEL_WARN
+     */
     const LEVEL_WARN = 1;
 
     /**
-      * @const LEVEL_ERROR
-      */
+     * @const LEVEL_ERROR
+     */
     const LEVEL_ERROR = 2;
 
     /**
