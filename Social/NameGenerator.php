@@ -1,49 +1,49 @@
 <?php
 
 /**
-  * Name Generator Class
-  *
-  * Generates a random user's details
-  *
-  * @author     Joshua Crocker
-  * @category   Social
-  * @version    1.0.0
-  */
+ * Name Generator Class
+ *
+ * Generates a random user's details
+ *
+ * @author     Joshua Crocker
+ * @category   Social
+ * @version    1.0.0
+ */
 class NameGenerator {
     
     /**
-      * @const The URL of the API
-      */
+     * @const The URL of the API
+     */
     const API_URL = 'https://randomuser.me/api/?nat=gb';
     
     /**
-      * @var string The seed for the API
-      */
+     * @var string The seed for the API
+     */
     private $seed;
 
     /**
-      * @var integer The gender of the randomly generated user
-      */
+     * @var integer The gender of the randomly generated user
+     */
     private $gender;
     
     /**
-      * @var integer The first name of the randomly generated user
-      */
+     * @var integer The first name of the randomly generated user
+     */
     private $firstName;
 
     /**
-      * @var integer The last name of the randomly generated user
-      */
+     * @var integer The last name of the randomly generated user
+     */
     private $lastName;
 
     /**
-      * Name Generator Constructor
-      *
-      * Generate a seed, if one hasn't been passed in, and
-      * generate the first random user.
-      *
-      * @param null|string $seed The seed for the API
-      */
+     * Name Generator Constructor
+     *
+     * Generate a seed, if one hasn't been passed in, and
+     * generate the first random user.
+     *
+     * @param null|string $seed The seed for the API
+     */
     public function __construct($seed = null) {
         // Remove all ampersands from the seed
         if ($seed != null) {
@@ -77,7 +77,7 @@ class NameGenerator {
     /**
       * Get First Name
       *
-      * @return string The person's first name
+      * @return integer The person's first name
       */
     public function getFirstName() {
         return $this->firstName;
@@ -86,7 +86,7 @@ class NameGenerator {
     /**
       * Get Last Name
       *
-      * @return string The person's last anme
+      * @return integer The person's last anme
       */
     public function getlastName() {
         return $this->lastName;
@@ -115,6 +115,7 @@ class NameGenerator {
       * Set Seed
       *
       * @param string The new seed
+      * @param string $seed
       */
     public function setSeed($seed) {
         $this->seed = $seed;

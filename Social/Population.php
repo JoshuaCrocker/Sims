@@ -1,12 +1,12 @@
 <?php
 
 /**
-  * Population Class
-  *
-  * @author     Joshua Crocker
-  * @category   Social
-  * @version    1.0.0
-  */
+ * Population Class
+ *
+ * @author     Joshua Crocker
+ * @category   Social
+ * @version    1.0.0
+ */
 class Population {
     
     /**

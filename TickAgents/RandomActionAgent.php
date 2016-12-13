@@ -82,7 +82,7 @@ class RandomActionAgent extends PopulationTickAgent {
      * Random Method
      * 
      * @access private
-     * @return float
+     * @return integer
      */
     private function random() {
         return mt_rand() / mt_getrandmax();
