@@ -5,9 +5,9 @@
   *
   * Generates a random user's details
   *
-  * @author   Joshua Crocker
-  * @category Action
-  * @version  1.0.0
+  * @author     Joshua Crocker
+  * @category   Social
+  * @version    1.0.0
   */
 class NameGenerator {
     

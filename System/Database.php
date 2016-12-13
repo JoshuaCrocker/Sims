@@ -1,8 +1,23 @@
 <?php
-class Database extends PDO
-{
-    public function __construct($file = 'my_setting.ini')
-    {
+    
+/**
+ * Database class
+ * 
+ * @extends     PDO
+ * @author      Joshua Crocker
+ * @category    System
+ * @version     1.0.0
+ */
+class Database extends PDO {
+    
+    /**
+     * Database Constructor
+     * 
+     * @access public
+     * @param string $file The Database Configuration file (default: 'my_setting.ini')
+     * @return void
+     */
+    public function __construct($file = 'my_setting.ini') {
         if (!$settings = parse_ini_file($file, TRUE)) {
             throw new exception('Unable to open ' . $file . '.');
         }
