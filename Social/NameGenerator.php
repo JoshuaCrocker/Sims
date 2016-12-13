@@ -45,10 +45,13 @@ class NameGenerator {
       * @param null|string $seed The seed for the API
       */
     public function __construct($seed = null) {
+        // Remove all ampersands from the seed
         if ($seed != null) {
             $seed = str_replace('&', '', $seed);
         }
-
+        
+        // Set the seed
+        // Generate a user
         $this->seed = is_null($seed) ? sha1(date('dmY')) : $seed;
         $this->regenerate();
     }
