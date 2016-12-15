@@ -35,6 +35,17 @@ class NameGenerator {
      * @var integer The last name of the randomly generated user
      */
     private $lastName;
+    
+    /**
+     * Iterator variable
+     *
+     * Appends to the seed to ensure each regeneration creates a new Person
+     * while maintaining the predictability with a seeded system.
+     * 
+     * @var integer
+     * @access private
+     */
+    private $iterator = 0;
 
     /**
      * Name Generator Constructor
@@ -101,14 +112,15 @@ class NameGenerator {
       * @return integer The person's gender
       */
     public function regenerate() {
-        // FIXME - At present, the regenrate function will always pull the same user
-        // Need to add an incrementor to the seed.
-        $json = file_get_contents(NameGenerator::API_URL . '&seed=' . $this->seed);
+        $json = file_get_contents(NameGenerator::API_URL . '&seed=' . $this->seed . '_' . $this->iterator);
         $json = json_decode($json);
 
         $this->gender = $json->results[0]->gender == 'male' ? Person::GENDER_MALE : Person::GENDER_FEMALE;
         $this->firstName = ucfirst($json->results[0]->name->first);
         $this->lastName = ucfirst($json->results[0]->name->last);
+        
+        // Increment the iterator
+        $this->iterator++;
     }
 
     /**
