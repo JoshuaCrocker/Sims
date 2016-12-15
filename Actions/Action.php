@@ -43,14 +43,13 @@ abstract class Action {
         
         // Calculate values
         $new_stat = $this->calculateStat($performer_stat, $performee_stat);
+        $relationship = $performee->getRelationship($performer->getID());
         
         // Apply values
         $performee->setStat($this->acts_on, $new_stat);
+        
 
-        $stat_diff = $new_stat - $performee_stat;
-        $relationship = $performee->getRelationship($performer->getID());
-
-        $new_relationship = $this->calculateRelationship($relationship, $stat_diff);
+        $new_relationship = $this->calculateRelationship($relationship, $new_stat);
 
         $performee->setRelationship($performer->getID(), $new_relationship);
 
@@ -69,8 +68,7 @@ abstract class Action {
      * @return float
      */
     protected function calculateStat($performer_stat, $performee_stat) {
-        $performer_multiplier = 2 * $performer_stat / Person::STAT_MAX;
-        $new_stat = $performee_stat + ($this->action_points * $performer_multiplier);
+        $new_stat = (($performer_stat + $performee_stat) / Person::STAT_MAX) * $this->action_points;
         
         if ($new_stat > Person::STAT_MAX) {
             $new_stat = Person::STAT_MAX;
@@ -84,18 +82,10 @@ abstract class Action {
      * 
      * @access protected
      * @param mixed $relationship The performee's relationship
-     * @param mixed $stat_diff The stat difference
-     * @return void
+     * @param mixed $new_stat The new value of the stat
+     * @return float
      */
-    protected function calculateRelationship($relationship, $stat_diff) {
-        if ($stat_diff < 0) {
-            $relationship_multiplier = -1;
-        } else {
-            $relationship_multiplier = 1;
-        }
-        
-        $new_relationship = $relationship_multiplier * ($relationship + ($stat_diff / 2));
-        
-        return $new_relationship;
+    protected function calculateRelationship($relationship, $new_stat) {
+        return $relationship + ($new_stat / $this->action_points);
     }
 }
