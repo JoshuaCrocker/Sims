@@ -12,8 +12,6 @@ require 'System/UUID.php';
 require 'Social/NameGenerator.php';
 require 'Social/Person.php';
 require 'Social/Population.php';
-require 'Actions/DefaultCalculationTrait.php';
-require 'Actions/ClubCalculationTrait.php';
 require 'Actions/Action.php';
 require 'Actions/ActionChat.php';
 require 'Actions/ActionClub.php';

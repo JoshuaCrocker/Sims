@@ -10,7 +10,6 @@
  * @version  1.0.0
  */
 class ActionClub extends Action {
-    use ClubCalculationTrait;
     
     /**
      * @var string $name Name of the action 
