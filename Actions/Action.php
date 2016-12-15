@@ -63,12 +63,12 @@ abstract class Action {
     /**
      * Calculate Stat Method
      * 
-     * @access private
+     * @access protected
      * @param mixed $performer_stat The stat of the performer
      * @param mixed $performee_stat The stat of the performee
      * @return float
      */
-    private function calculateStat($performer_stat, $performee_stat) {
+    protected function calculateStat($performer_stat, $performee_stat) {
         $performer_multiplier = 2 * $performer_stat / Person::STAT_MAX;
         $new_stat = $performee_stat + ($this->action_points * $performer_multiplier);
         
@@ -82,12 +82,12 @@ abstract class Action {
     /**
      * Calculate Relationship Method
      * 
-     * @access private
+     * @access protected
      * @param mixed $relationship The performee's relationship
      * @param mixed $stat_diff The stat difference
      * @return void
      */
-    private function calculateRelationship($relationship, $stat_diff) {
+    protected function calculateRelationship($relationship, $stat_diff) {
         if ($stat_diff < 0) {
             $relationship_multiplier = -1;
         } else {

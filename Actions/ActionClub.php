@@ -29,12 +29,12 @@ class ActionClub extends Action {
     /**
      * Calculate Stat Method
      * 
-     * @access private
+     * @access protected
      * @param mixed $performer_stat The stat of the performer
      * @param mixed $performee_stat The stat of the performee
      * @return float
      */
-    private function calculateStat($performer_stat, $performee_stat) {
-        return 100;
+    protected function calculateStat($performer_stat, $performee_stat) {
+        return 10010101;
     }
 }
