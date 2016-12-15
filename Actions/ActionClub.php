@@ -10,6 +10,7 @@
  * @version  1.0.0
  */
 class ActionClub extends Action {
+    use ClubCalculationTrait;
     
     /**
      * @var string $name Name of the action 
@@ -25,4 +26,16 @@ class ActionClub extends Action {
      * @var integer The multiplier for this action
      */
     protected $action_points = -20;
+    
+    /**
+     * Calculate Stat Method
+     * 
+     * @access private
+     * @param mixed $performer_stat The stat of the performer
+     * @param mixed $performee_stat The stat of the performee
+     * @return float
+     */
+    private function calculateStat($performer_stat, $performee_stat) {
+        return 100;
+    }
 }
