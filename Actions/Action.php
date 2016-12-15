@@ -42,12 +42,7 @@ abstract class Action {
         $performee_stat = $performee->getStat($this->acts_on);
         
         // Calculate values
-        $performer_multiplier = 2 * $performer_stat / Person::STAT_MAX;
-        $new_stat = $performee_stat + ($this->action_points * $performer_multiplier);
-
-        if ($new_stat > Person::STAT_MAX) {
-            $new_stat = Person::STAT_MAX;
-        }
+        $new_stat = $this->calculateStat($performer_stat, $performee_stat);
         
         // Apply values
         $performee->setStat($this->acts_on, $new_stat);
@@ -55,14 +50,7 @@ abstract class Action {
         $stat_diff = $new_stat - $performee_stat;
         $relationship = $performee->getRelationship($performer->getID());
 
-        if ($stat_diff < 0) {
-            $relationship_multiplier = -1;
-        } else {
-            $relationship_multiplier = 1;
-        }
-        
-        // Relationship stuff
-        $new_relationship = $relationship_multiplier * ($relationship + ($stat_diff / 2));
+        $new_relationship = $this->calculateRelationship($relationship, $stat_diff);
 
         $performee->setRelationship($performer->getID(), $new_relationship);
 
@@ -70,5 +58,44 @@ abstract class Action {
         Output::getInstance()->addOutput($performer->getName() . ' performed ' . $this->name . ' on ' . $performee->getName() . ' making their stat change from ' . $performee_stat . ' to ' . $new_stat);
         Output::getInstance()->addOutput($performee->getName() . '\'s relationship with ' . $performer->getName() . ' changed from ' . $relationship . ' to ' . $new_relationship);
         
+    }
+    
+    /**
+     * Calculate Stat Method
+     * 
+     * @access protected
+     * @param mixed $performer_stat The stat of the performer
+     * @param mixed $performee_stat The stat of the performee
+     * @return float
+     */
+    protected function calculateStat($performer_stat, $performee_stat) {
+        $performer_multiplier = 2 * $performer_stat / Person::STAT_MAX;
+        $new_stat = $performee_stat + ($this->action_points * $performer_multiplier);
+        
+        if ($new_stat > Person::STAT_MAX) {
+            $new_stat = Person::STAT_MAX;
+        }
+        
+        return $new_stat;
+    }
+    
+    /**
+     * Calculate Relationship Method
+     * 
+     * @access protected
+     * @param mixed $relationship The performee's relationship
+     * @param mixed $stat_diff The stat difference
+     * @return void
+     */
+    protected function calculateRelationship($relationship, $stat_diff) {
+        if ($stat_diff < 0) {
+            $relationship_multiplier = -1;
+        } else {
+            $relationship_multiplier = 1;
+        }
+        
+        $new_relationship = $relationship_multiplier * ($relationship + ($stat_diff / 2));
+        
+        return $new_relationship;
     }
 }
