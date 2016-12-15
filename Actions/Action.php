@@ -83,11 +83,9 @@ abstract class Action {
      * @access protected
      * @param mixed $relationship The performee's relationship
      * @param mixed $new_stat The new value of the stat
-     * @return void
+     * @return float
      */
     protected function calculateRelationship($relationship, $new_stat) {
         return $relationship + ($new_stat / $this->action_points);
-        
-        return $new_relationship;
     }
 }
