@@ -36,7 +36,7 @@ class SocialNameGeneratorTest extends TestCase {
         $name = ucfirst($response->results[0]->name->first) . ' ' . ucfirst($response->results[0]->name->last);
         $gender = $response->results[0]->gender == 'male' ? Person::GENDER_MALE : Person::GENDER_FEMALE;
 
-        $this->assertEquals($seed.'_0', $response->info->seed);
+        $this->assertEquals($seed . '_0', $response->info->seed);
 
         $this->assertEquals(ucfirst($response->results[0]->name->first), $generator->getFirstName());
         $this->assertEquals(ucfirst($response->results[0]->name->last), $generator->getLastName());
