@@ -68,49 +68,49 @@ class NameGenerator {
     }
 
     /**
-      * Get Gender
-      *
-      * @return integer The person's gender
-      */
+     * Get Gender
+     *
+     * @return integer The person's gender
+     */
     public function getGender() {
         return $this->gender;
     }
 
     /**
-      * Get Full Name
-      *
-      * @return string The person's full name
-      */
+     * Get Full Name
+     *
+     * @return string The person's full name
+     */
     public function getFullName() {
         return $this->firstName . ' ' . $this->lastName;
     }
 
     /**
-      * Get First Name
-      *
-      * @return integer The person's first name
-      */
+     * Get First Name
+     *
+     * @return integer The person's first name
+     */
     public function getFirstName() {
         return $this->firstName;
     }
     
     /**
-      * Get Last Name
-      *
-      * @return integer The person's last anme
-      */
+     * Get Last Name
+     *
+     * @return integer The person's last anme
+     */
     public function getlastName() {
         return $this->lastName;
     }
 
     /**
-      * Regenerate the person
-      *
-      * Contact the Random User API and collect a new
-      * user, using the current seed.
-      *
-      * @return integer The person's gender
-      */
+     * Regenerate the person
+     *
+     * Contact the Random User API and collect a new
+     * user, using the current seed.
+     *
+     * @return integer The person's gender
+     */
     public function regenerate() {
         $json = file_get_contents(NameGenerator::API_URL . '&seed=' . $this->seed . '_' . $this->iterator);
         $json = json_decode($json);
@@ -124,20 +124,20 @@ class NameGenerator {
     }
 
     /**
-      * Set Seed
-      *
-      * @param string The new seed
-      * @param string $seed
-      */
+     * Set Seed
+     *
+     * @param string The new seed
+     * @param string $seed
+     */
     public function setSeed($seed) {
         $this->seed = $seed;
     }
 
     /**
-      * Get Seed
-      *
-      * @return string The seed
-      */
+     * Get Seed
+     *
+     * @return string The seed
+     */
     public function getSeed() {
         return $this->seed;
     }
